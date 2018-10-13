@@ -1,5 +1,5 @@
 <template>
-  <vue-picture-swipe v-if="deanPhotos.length" :items="deanPhotos" :options="{shareEl: false}"></vue-picture-swipe>
+  <vue-picture-swipe v-if="deanPhotos.length" :items="deanPhotos" :options="options"></vue-picture-swipe>
 </template>
 
 <script>
@@ -13,6 +13,10 @@ export default {
   },
   data() {
     return {
+      options: {
+        shareEl: false,
+        zoomEl: false,
+      },
       photosMetadata: [],
       deanPhotos: [],
       windowHeight: 0
@@ -26,7 +30,7 @@ export default {
 
       this.photosMetadata.forEach(photo => {
         this.deanPhotos.push({
-          src: `https://res.cloudinary.com/tkilgour/image/upload/h_${this.windowHeight}/v1539392846/${photo.public_id}.${photo.format}`,
+          src: `https://res.cloudinary.com/tkilgour/image/upload/h_${this.windowHeight * 2}/v1539392846/${photo.public_id}.${photo.format}`,
           thumbnail: `https://res.cloudinary.com/tkilgour/image/upload/c_thumb,h_250,w_250/v1539392846/${photo.public_id}.${photo.format}`,
           w: photo.width,
           h: photo.height
