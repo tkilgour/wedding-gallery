@@ -1,28 +1,48 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <vue-picture-swipe v-if="deanPhotos.length" :items="deanPhotos" :options="{shareEl: false}"></vue-picture-swipe>
+    <p>test</p>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import VuePictureSwipe from 'vue-picture-swipe';
+import axios from 'axios';
 
 export default {
-  name: 'app',
+  name: "App",
   components: {
-    HelloWorld
+    VuePictureSwipe
+  },
+  data() {
+    return {
+      photosMetadata: [],
+      deanPhotos: [],
+      windowHeight: 0
+    }
+  },
+  created() {
+    this.windowHeight = window.innerHeight;
+    
+    axios.get('/photo_metadata.json').then(({ data : { resources } }) => {
+      this.photosMetadata = resources;
+
+      this.photosMetadata.forEach(photo => {
+        this.deanPhotos.push({
+          src: `https://res.cloudinary.com/tkilgour/image/upload/h_${this.windowHeight}/v1539392846/${photo.public_id}.${photo.format}`,
+          thumbnail: `https://res.cloudinary.com/tkilgour/image/upload/c_thumb,h_250,w_250/v1539392846/${photo.public_id}.${photo.format}`,
+          w: photo.width,
+          h: photo.height
+        });
+      })
+    })
+    
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+img[itemprop="thumbnail"] {
+  max-height: 125px;
 }
 </style>

@@ -1,0 +1,30 @@
+body {
+  font-family: 'Gill Sans', sans-serif;
+  background-color: #bed5e4;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  -webkit-box-shadow: -2px 4px 16px 0px rgb(143, 151, 158);
+  -moz-box-shadow: -2px 4px 16px 0px rgb(143, 151, 158);
+  box-shadow: -2px 4px 16px 0px rgb(143, 151, 158);
+}
+
+h1 {
+  font-weight: 600;
+  text-align: center;
+}
+
+.my-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+img[itemprop="thumbnail"] {
+  margin: 0 2px;
+}
