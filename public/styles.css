@@ -6,7 +6,7 @@ body {
 .container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 30px;
+  padding: 15px;
   background-color: #ffffff;
   border-radius: 5px;
   -webkit-box-shadow: -2px 4px 16px 0px rgb(143, 151, 158);

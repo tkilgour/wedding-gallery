@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <vue-picture-swipe v-if="deanPhotos.length" :items="deanPhotos" :options="{shareEl: false}"></vue-picture-swipe>
-    <p>test</p>
-  </div>
+  <vue-picture-swipe v-if="deanPhotos.length" :items="deanPhotos" :options="{shareEl: false}"></vue-picture-swipe>
 </template>
 
 <script>
@@ -44,5 +41,21 @@ export default {
 <style>
 img[itemprop="thumbnail"] {
   max-height: 125px;
+}
+
+@media (max-width: 640px) {
+  img[itemprop="thumbnail"] {
+    max-height: 100px;
+  }
+
+  figure[itemprop="associatedMedia"] {
+    margin: 0;
+  }
+}
+
+@media (max-width: 320px) {
+  img[itemprop="thumbnail"] {
+    max-height: 87px;
+  }
 }
 </style>
