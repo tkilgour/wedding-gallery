@@ -2,6 +2,8 @@
   <div>
     <h3>Photos by Dean Palmer</h3>
     <vue-picture-swipe v-if="deanPhotos.length" :items="deanPhotos" :options="options"></vue-picture-swipe>
+    <h3>Photos Submitted by Guests</h3>
+    <vue-picture-swipe v-if="guestPhotos.length" :items="guestPhotos" :options="options"></vue-picture-swipe>
   </div>
 </template>
 
@@ -22,6 +24,7 @@ export default {
       },
       photosMetadata: [],
       deanPhotos: [],
+      guestPhotos: [],
       windowHeight: 0
     }
   },
@@ -33,12 +36,15 @@ export default {
 
       this.photosMetadata.forEach(photo => {
         const landscape = photo.width > photo.height;
-        this.deanPhotos.push({
+        const dean = photo.public_id.includes('Dean');
+        const photoObj = {
           src: `https://res.cloudinary.com/tkilgour/image/upload/h_${this.windowHeight * 2}/v1539392846/${photo.public_id}.${photo.format}`,
           thumbnail: `https://res.cloudinary.com/tkilgour/image/upload/c_thumb,${landscape ? "h_250" : "w_250"}/v1539392846/${photo.public_id}.${photo.format}`,
           w: photo.width,
           h: photo.height
-        });
+        }
+
+        dean ? this.deanPhotos.push(photoObj) : this.guestPhotos.push(photoObj);
       })
     })
   }

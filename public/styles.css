@@ -72,6 +72,30 @@ main > p {
   justify-content: center;
 }
 
+.flex-wpr {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.horizontal-wpr {
+  max-width: 400px;
+}
+
+.vertical-wpr {
+  max-width: 224px;
+}
+
+video {
+  width: 100%;
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.full-height {
+  min-height: 100vh;
+}
+
 @media (max-width: 640px) {
   .container {
     padding: 10px;
