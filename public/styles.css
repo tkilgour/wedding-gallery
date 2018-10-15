@@ -38,6 +38,7 @@ header {
 }
 
 h1 {
+  color: #648fa8;
   font-family: "Gill Sans Nova Inline", "Gill Sans", sans-serif;
   font-weight: 100;
   font-size: 48px;
@@ -46,6 +47,7 @@ h1 {
 }
 
 h2 {
+  color: #648fa8;
   font-family: "GillSans-LightSC";
   text-align: center;
   margin-top: 10px;
