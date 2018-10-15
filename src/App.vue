@@ -1,5 +1,8 @@
 <template>
-  <vue-picture-swipe v-if="deanPhotos.length" :items="deanPhotos" :options="options"></vue-picture-swipe>
+  <div>
+    <h3>Photos by Dean Palmer</h3>
+    <vue-picture-swipe v-if="deanPhotos.length" :items="deanPhotos" :options="options"></vue-picture-swipe>
+  </div>
 </template>
 
 <script>
@@ -31,13 +34,12 @@ export default {
       this.photosMetadata.forEach(photo => {
         this.deanPhotos.push({
           src: `https://res.cloudinary.com/tkilgour/image/upload/h_${this.windowHeight * 2}/v1539392846/${photo.public_id}.${photo.format}`,
-          thumbnail: `https://res.cloudinary.com/tkilgour/image/upload/c_thumb,h_250,w_250/v1539392846/${photo.public_id}.${photo.format}`,
+          thumbnail: `https://res.cloudinary.com/tkilgour/image/upload/c_thumb,h_250/v1539392846/${photo.public_id}.${photo.format}`,
           w: photo.width,
           h: photo.height
         });
       })
     })
-    
   }
 }
 </script>
@@ -57,7 +59,7 @@ img[itemprop="thumbnail"] {
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 360px) {
   img[itemprop="thumbnail"] {
     max-height: 87px;
   }
