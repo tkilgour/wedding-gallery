@@ -67,7 +67,7 @@ main > p {
 }
 
 .section-links {
-  z-index: 9999;
+  z-index: 10;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
