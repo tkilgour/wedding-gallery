@@ -17,6 +17,11 @@
           </div>
         </div>
         <div class="video-wpr">
+          <div class="yt-wpr">
+            <iframe width="400" height="225" src="https://www.youtube.com/embed/pFTqROIGBmE?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="video-wpr">
           <video controls poster="https://res.cloudinary.com/tkilgour/image/upload/w_810/v1539629222/Videos/Screen_Shot_2018-10-15_at_2.46.21_PM.png" src="https://res.cloudinary.com/tkilgour/video/upload/v1539628908/Videos/Video_2018-08-11_1_31_06_PM.mp4">
             Sorry, your browser doesn't support embedded videos.
           </video>
