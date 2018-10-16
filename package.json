@@ -10,7 +10,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "vue": "^2.5.17",
-    "vue-picture-swipe": "^0.4.0"
+    "vue-picture-swipe": "^0.4.0",
+    "vue-scrollto": "^2.13.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.1",

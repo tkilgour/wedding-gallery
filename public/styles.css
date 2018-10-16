@@ -56,7 +56,7 @@ h2 {
 h3 {
   font-weight: 500;
   margin-left: 4px;
-  margin-top: 45px;
+  margin-top: 0;
 }
 
 main > p {
@@ -66,23 +66,47 @@ main > p {
   padding: 0 2px;
 }
 
+.section-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  position: sticky;
+  top: 0px;
+  padding: 15px;
+  background-color: white;
+}
+
+.section-links > span {
+  margin-right: 5px;
+}
+
+button {
+  font-size: 14px;
+  border: none;
+  border-radius: 2px;
+  background-color: #648fa8;
+  color: white;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #456374;
+}
+
 .my-gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 45px;
 }
 
-.flex-wpr {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.horizontal-wpr {
+.video-wpr {
   max-width: 400px;
+  margin: 20px auto;
 }
 
-.vertical-wpr {
+.video-wpr.vertical {
   max-width: 224px;
 }
 
@@ -92,8 +116,27 @@ video {
   max-height: 400px;
 }
 
+.yt-wpr {
+  position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 25px;
+	height: 0;
+}
+
+.yt-wpr iframe {
+  position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
 .full-height {
   min-height: 100vh;
+}
+
+.centered {
+  text-align: center;
 }
 
 @media (max-width: 640px) {

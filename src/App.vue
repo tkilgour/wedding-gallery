@@ -1,8 +1,14 @@
 <template>
   <div>
-    <h3>Photos by Dean Palmer</h3>
+    <div class="centered">Skip to Section</div>
+    <div class="section-links">
+      <button v-scroll-to="'#dean'">Dean Palmer</button>
+      <button v-scroll-to="'#guests'">Guest</button>
+      <button v-scroll-to="'#videos'">Videos</button>
+    </div>
+    <h3 id="dean">Photos by Dean Palmer</h3>
     <vue-picture-swipe v-if="deanPhotos.length" :items="deanPhotos" :options="options"></vue-picture-swipe>
-    <h3>Photos Submitted by Guests</h3>
+    <h3 id="guests">Photos Submitted by Guests</h3>
     <vue-picture-swipe v-if="guestPhotos.length" :items="guestPhotos" :options="options"></vue-picture-swipe>
   </div>
 </template>
