@@ -73,6 +73,7 @@ main > p {
   align-items: baseline;
   justify-content: center;
   position: sticky;
+  position: -webkit-sticky;
   top: 0px;
   padding: 15px;
   background-color: white;
@@ -88,7 +89,8 @@ button {
   border-radius: 2px;
   background-color: #648fa8;
   color: white;
-  margin: 5px;
+  margin: 0 5px;
+  padding: 5px 10px;
 }
 
 button:hover {
