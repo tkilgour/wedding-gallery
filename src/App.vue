@@ -11,37 +11,72 @@
     <h3 id="guests">Photos Submitted by Guests</h3>
     <vue-picture-swipe v-if="guestPhotos.length" :items="guestPhotos" :options="options"></vue-picture-swipe>
     <h3 id="videos">Videos</h3>
-        <div class="video-wpr">
-          <div class="yt-wpr">
-            <iframe width="400" height="225" src="https://www.youtube.com/embed/2VIdymJQIgQ?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-        <div class="video-wpr">
-          <div class="yt-wpr">
-            <iframe width="400" height="225" src="https://www.youtube.com/embed/pFTqROIGBmE?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-        <div class="video-wpr">
-          <video controls poster="https://res.cloudinary.com/tkilgour/image/upload/w_810/v1539714803/Videos/Screen_Shot_2018-10-16_at_2.30.12_PM.png" src="https://res.cloudinary.com/tkilgour/video/upload/v1539714779/Videos/IMG_4290.mp4">
-            Sorry, your browser doesn't support embedded videos.
-          </video>
-        </div>
-        <div class="video-wpr">
-          <video controls poster="https://res.cloudinary.com/tkilgour/image/upload/w_810/v1539629222/Videos/Screen_Shot_2018-10-15_at_2.46.21_PM.png" src="https://res.cloudinary.com/tkilgour/video/upload/v1539628908/Videos/Video_2018-08-11_1_31_06_PM.mp4">
-            Sorry, your browser doesn't support embedded videos.
-          </video>
-        </div>
-        <div class="video-wpr vertical">
-          <video controls poster="https://res.cloudinary.com/tkilgour/image/upload/v1539629949/Videos/Screen_Shot_2018-10-15_at_2.58.30_PM.png" src="https://res.cloudinary.com/tkilgour/video/upload/v1539629924/Videos/Video_2018-08-11_3_40_58_PM.mp4">
-            Sorry, your browser doesn't support embedded videos.
-          </video>
-        </div>
+    <div class="video-wpr">
+      <div class="yt-wpr">
+        <iframe
+          width="400"
+          height="225"
+          src="https://www.youtube.com/embed/2VIdymJQIgQ?rel=0"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+    <div class="video-wpr">
+      <div class="yt-wpr">
+        <iframe
+          width="400"
+          height="225"
+          src="https://www.youtube.com/embed/pFTqROIGBmE?rel=0"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+    <div class="video-wpr">
+      <div class="yt-wpr">
+        <iframe
+          width="400"
+          height="225"
+          src="https://www.youtube.com/embed/hODkYdMmTJo?rel=0"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+    <div class="video-wpr">
+      <div class="yt-wpr">
+        <iframe
+          width="400"
+          height="225"
+          src="https://www.youtube.com/embed/ri8bNMwBFgo?rel=0"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+    <div class="video-wpr">
+      <div class="yt-wpr">
+        <iframe
+          width="400"
+          height="225"
+          src="https://www.youtube.com/embed/fuC1W9XJ2s8?rel=0"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import VuePictureSwipe from 'vue-picture-swipe';
-import axios from 'axios';
+import VuePictureSwipe from "vue-picture-swipe";
+import axios from "axios";
 
 export default {
   name: "App",
@@ -52,35 +87,38 @@ export default {
     return {
       options: {
         shareEl: false,
-        zoomEl: false,
+        zoomEl: false
       },
       photosMetadata: [],
       deanPhotos: [],
       guestPhotos: [],
       windowHeight: 0
-    }
+    };
   },
   created() {
     this.windowHeight = window.innerHeight;
-    
-    axios.get('/photo_metadata.json').then(({ data : { resources } }) => {
+
+    axios.get("/photo_metadata.json").then(({ data: { resources } }) => {
       this.photosMetadata = resources;
 
       this.photosMetadata.forEach(photo => {
         const landscape = photo.width > photo.height;
-        const dean = photo.public_id.includes('Dean');
+        const dean = photo.public_id.includes("Dean");
         const photoObj = {
-          src: `https://res.cloudinary.com/tkilgour/image/upload/h_${this.windowHeight * 2}/v1539392846/${photo.public_id}.${photo.format}`,
-          thumbnail: `https://res.cloudinary.com/tkilgour/image/upload/c_thumb,${landscape ? "h_250" : "w_250"}/v1539392846/${photo.public_id}.${photo.format}`,
+          src: `https://res.cloudinary.com/tkilgour/image/upload/h_${this
+            .windowHeight * 2}/v1539392846/${photo.public_id}.${photo.format}`,
+          thumbnail: `https://res.cloudinary.com/tkilgour/image/upload/c_thumb,${
+            landscape ? "h_250" : "w_250"
+          }/v1539392846/${photo.public_id}.${photo.format}`,
           w: photo.width,
           h: photo.height
-        }
+        };
 
         dean ? this.deanPhotos.push(photoObj) : this.guestPhotos.push(photoObj);
-      })
-    })
+      });
+    });
   }
-}
+};
 </script>
 
 <style>
